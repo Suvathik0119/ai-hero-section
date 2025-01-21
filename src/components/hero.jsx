@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.css";
-import heroBg from '../Assets/hero_bg.mp4'; // Ensure this CSS file is correctly linked
+import heroBg from '../assets/hero_bg.mp4'; // Ensure this CSS file is correctly linked
 
 const Hero = () => {
   return (
