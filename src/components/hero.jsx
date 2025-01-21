@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.css";
-import heroBg from '../assets/hero_bg.mp4'; // Ensure this CSS file is correctly linked
+import heroBg from "../assets/hero_bg.mp4";
 
 const Hero = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
     <div className="hero-section">
       <div className="video-background">
@@ -12,28 +18,40 @@ const Hero = () => {
         </video>
       </div>
       <nav className="navbar">
-        <ul>
+        <div className="nav-logo">Nexa AI</div>
+        <div
+          className={`menu-icon ${menuOpen ? "active" : ""}`}
+          onClick={toggleMenu}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul className={`nav-link ${menuOpen ? "active" : ""}`}>
           <li>Services</li>
           <li>About us</li>
           <li>Careers</li>
           <li>News</li>
           <li>Contact us</li>
+          <button className="contact-button">Let's Talk</button>
         </ul>
-        <button className="contact-button">Let's Talk</button>
+        
       </nav>
       <div className="hero-content">
         <h1 className="hero-title">
           Nexa AI Solutions <br />
           <span>Craft Your Intelligence</span>
         </h1>
-        <div className="services-list">
-          <button className="service-item">Customer Support Chatbots</button>
-          <button className="service-item">Internal Document Search Systems</button>
-          <button className="service-item">Development of AI Applications</button>
-        </div>
         <p className="highlight-text">
           Solve your tasks and speed up processes by <span>60%</span>
         </p>
+        <div className="services-list">
+          <button className="service-item">Customer Support Chatbots</button>
+          <button className="service-item">
+            Internal Document Search Systems
+          </button>
+          <button className="service-item">Development of AI Applications</button>
+        </div>
       </div>
     </div>
   );
